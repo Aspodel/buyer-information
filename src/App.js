@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "antd/dist/antd.css";
+import BuyerAccount from "./components/BuyerAccount";
+import NamePopup from "./components/popups/NamePopup";
+import PasswordPopup from "./components/popups/PasswordPopup";
+import NotiPopup from "./components/popups/NotiPopup";
+import EmailPopup from "./components/popups/EmailPopup";
+import PhonePopup from "./components/popups/PhonePopup";
+import EmailCodePopup from "./components/popups/EmailCodePopup";
+import PhoneCodePopup from "./components/popups/PhoneCodePopup";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BuyerAccount />
+      <NamePopup />
+      <PasswordPopup />
+      <NotiPopup />
+      <EmailPopup />
+      <PhonePopup />
+      <EmailCodePopup />
+      <PhoneCodePopup />
     </div>
   );
 }
