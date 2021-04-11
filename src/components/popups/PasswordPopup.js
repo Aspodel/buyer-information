@@ -26,6 +26,11 @@ const Row = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
 `;
 
 const Button = styled.input.attrs((props) => ({
@@ -45,6 +50,11 @@ const Button = styled.input.attrs((props) => ({
 
 const InputContainer = styled.div`
   width: ${(props) => props.width || "100%"};
+
+  @media (max-width: 700px) {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 `;
 
 const Input = styled.input.attrs((props) => ({

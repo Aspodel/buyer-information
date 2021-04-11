@@ -8,11 +8,39 @@ const Page = styled.div`
   height: 100vh;
   width: 100vw;
   padding-top: 100px;
+
+  @media (max-width: 768px) {
+    /* height: auto; */
+    padding: 10px 20px 30px;
+  }
 `;
 
 const Content = styled.div`
   width: 1200px;
   margin: auto;
+
+  .hidden-title {
+    visibility: hidden;
+  }
+
+  @media (max-width: 1250px) {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  @media (max-width: 850px) {
+    h1 {
+      display: none;
+    }
+
+    h2 {
+      visibility: visible;
+    }
+
+    .hidden-title {
+      visibility: visible;
+    }
+  }
 `;
 
 const Row = styled.div`
@@ -23,12 +51,27 @@ const Row = styled.div`
   padding: 20px 0 10px;
   border-bottom: ${(props) => (props.border ? "0.5px solid #c2c2c2" : "none")};
   width: ${(props) => props.size || "auto"};
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+
+    &.column {
+      flex-direction: column;
+    }
+  }
 `;
 
 const Wrapper = styled.div`
   width: 48%;
   border-bottom: ${(props) => (props.border ? "0.5px solid #c2c2c2" : "none")};
   padding-bottom: 10px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (max-width: 400px) {
+    font-size: 15px;
+  }
 `;
 
 const Warning = styled.span`
@@ -42,6 +85,10 @@ const Text = styled.span`
   font-size: ${(props) => (props.small ? "16px" : "20px")};
   display: flex;
   align-items: center;
+
+  @media (max-width: 400px) {
+    font-size: ${(props) => (props.small ? "15px" : "17px")};
+  }
 `;
 
 const Icon = styled.div`
@@ -94,6 +141,25 @@ const Box = styled.div`
   h3 {
     margin: 0;
   }
+  span {
+    min-width: 90px;
+  }
+
+  @media (max-width: 950px) {
+    span {
+      padding: 3px 10px;
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 470px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+  }
 `;
 
 const BuyerAccount = () => {
@@ -102,9 +168,9 @@ const BuyerAccount = () => {
       <Content>
         <h1>Information</h1>
 
-        <Row>
+        <Row className="column">
           <Wrapper>
-            <Row left>
+            <Row left className="avatar-box">
               <AvatarBox>
                 <Avatar />
                 <CircleIcon>
@@ -123,7 +189,9 @@ const BuyerAccount = () => {
           </Wrapper>
         </Row>
 
-        <Row>
+        <h2 className="hidden-title">Information</h2>
+
+        <Row className="column">
           <Wrapper border>
             <Row>
               <Text>

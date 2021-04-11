@@ -20,6 +20,9 @@ const Box = styled.form`
   h2 {
     margin-bottom: 30px;
   }
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 const Button = styled.input.attrs((props) => ({
@@ -55,6 +58,15 @@ const Input = styled.input.attrs((props) => ({
   font-size: 18px;
   margin-right: 20px;
   box-sizing: border-box;
+
+  @media (max-width: 700px) {
+    width: 48px;
+    padding: 15px;
+  }
+  @media (max-width: 450px) {
+    width: 30px;
+    padding: 12px;
+  }
 `;
 
 const EmailCodePopup = () => {

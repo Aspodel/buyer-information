@@ -12,6 +12,7 @@ const Popup = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const Box = styled.form`
   width: 700px;
   padding: 48px 40px;
@@ -22,11 +23,19 @@ const Box = styled.form`
     margin-bottom: 40px;
   }
 `;
+
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 30px;
+
+  @media (max-width: 650px) {
+    margin-bottom: 0;
+
+    &.column {
+      flex-direction: column;
+    }
+  }
 `;
 
 const Button = styled.input.attrs((props) => ({
@@ -52,6 +61,11 @@ const Container = styled(Row)`
   span {
     margin-left: 10px;
   }
+
+  @media (max-width: 650px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;
 
 const Toggle = styled.div`
@@ -65,13 +79,14 @@ const NotiPopup = () => {
     <Popup>
       <Box>
         <h2>Notification setting</h2>
-        <Row>
+        <Row className="column">
           <Container>
             <Toggle>
               <Switch />
             </Toggle>
             <span>Mute all notification</span>
           </Container>
+
           <Container>
             <Toggle>
               <Switch defaultChecked />
@@ -79,13 +94,15 @@ const NotiPopup = () => {
             <span>Mute inbox</span>
           </Container>
         </Row>
-        <Row>
+
+        <Row className="column">
           <Container>
             <Toggle>
               <Switch />
             </Toggle>
             <span>Mute new order</span>
           </Container>
+
           <Container>
             <Toggle>
               <Switch defaultChecked />
